@@ -104,3 +104,6 @@ fun TampilData(
             Text(text = "Beranda", fontSize = 18.sp)
         }
 
+        Spacer(modifier = Modifier.height(10.dp))
+
+
