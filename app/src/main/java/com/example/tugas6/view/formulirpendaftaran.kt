@@ -150,3 +150,12 @@ fun FormDataDiriStyled(
                             }
                         }
 
+                        Text(text = "ALAMAT", color = labelColorOnWhite)
+                        OutlinedTextField(
+                            value = alamatInput,
+                            onValueChange = { alamatInput = it },
+                            singleLine = true,
+                            modifier = Modifier.fillMaxWidth(),
+                            placeholder = { Text("Alamat") }
+                        )
+
