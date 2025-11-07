@@ -84,3 +84,8 @@ fun TampilData(
                     color = Color(0xFF4A148C)
                 )
             }
+            Spacer(modifier = Modifier.height(10.dp))
+        }
+
+        Spacer(modifier = Modifier.height(20.dp))
+
