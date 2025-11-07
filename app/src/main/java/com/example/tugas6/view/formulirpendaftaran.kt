@@ -54,4 +54,78 @@ fun FormDataDiriStyled(
         modifier = modifier
             .fillMaxSize()
             .background(Color(0xFFF8EAF6))
-    )
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(vertical = 12.dp)
+        ) {
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                shape = RoundedCornerShape(18.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .verticalScroll(scrollState)
+                ) {
+                    // Header
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(50.dp)
+                            .clip(RoundedCornerShape(topStart = 18.dp, topEnd = 18.dp))
+                            .background(headerGradient),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "Formulir Pendaftaran",
+                            color = Color.White,
+                            fontWeight = FontWeight.SemiBold,
+                            textAlign = TextAlign.Center,
+                            style = MaterialTheme.typography.titleLarge
+                        )
+                    }
+
+                    // Form Input
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        horizontalAlignment = Alignment.Start,
+                        verticalArrangement = Arrangement.spacedBy(10.dp)
+                    ) {
+                        Text(text = "NAMA LENGKAP", color = labelColorOnWhite)
+                        OutlinedTextField(
+                            value = namaInput,
+                            onValueChange = { namaInput = it },
+                            singleLine = true,
+                            modifier = Modifier.fillMaxWidth(),
+                            placeholder = { Text("Isi nama lengkapnya") }
+                        )
+
+                        Text(text = "JENIS KELAMIN", color = labelColorOnWhite)
+                        Column(verticalArrangement = Arrangement.spacedBy(1.dp)) {
+                            genders.forEach { gender ->
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    modifier = Modifier
+                                        .selectable(
+                                            selected = (genderInput == gender),
+                                            onClick = { genderInput = gender }
+                                        )
+                                        .padding(vertical = 1.dp)
+                                ) {
+                                    RadioButton(
+                                        selected = (genderInput == gender),
+                                        onClick = { genderInput = gender }
+                                    )
+                                    Text(text = gender, modifier = Modifier.padding(start = 8.dp))
+                                }
+                            }
+                        }
+
