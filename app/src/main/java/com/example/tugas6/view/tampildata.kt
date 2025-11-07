@@ -59,3 +59,14 @@ fun TampilData(
         )
 
         Spacer(modifier = Modifier.height(16.dp))
+
+        // Daftar Data Peserta
+        dataPeserta.forEach { (label, value) ->
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color.White, RoundedCornerShape(16.dp))
+                    .padding(vertical = 10.dp, horizontal = 16.dp)
+                    .padding(bottom = 8.dp)
+                    .then(Modifier.padding(vertical = 5.dp))
+            )
